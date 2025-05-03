@@ -3,7 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-// import { UserModule } from './user/user.module';
+import { UserModule } from 'src/user/user.module';
+import { User } from './entity/user-entity.';
 
 @Module({
   imports: [
@@ -12,12 +13,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Masdfg@12345',
-      database: 'your_db_name',
-      entities: [],
+      password: 'root',
+      database: 'fin-genius',
+      entities: [User],
       synchronize: true,
     }),
-    // UserModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
